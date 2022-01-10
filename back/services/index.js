@@ -1,8 +1,10 @@
-const prepareStrategy = require('./google');
+const prepareGoogleStrategy = require('./google');
+const prepareFacebookStrategy = require('./facebook');
 // require('./facebook');
 
 function initialize() {
-    prepareStrategy()
+    prepareGoogleStrategy()
+    prepareFacebookStrategy()
 }
 
 module.exports = initialize;

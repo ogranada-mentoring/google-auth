@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors')
 const passport = require('passport');
 const initServices = require('./services');
-const public_routes = require('./routes/public');
+const initPublicRouter = require('./routes/public');
 const prepareRoutes = require('./routes/auth');
 
 function main() {
@@ -18,8 +18,10 @@ function main() {
 
   // Parse JSON bodies (as sent by API clients)
   app.use(express.json());
-  app.use(public_routes);
+  app.use(initPublicRouter());
   app.use(prepareRoutes());
+
+  app.use(express.static('./public'))
 
   app.listen(PORT, function () {
     console.log(`App listening the port [${PORT}]!`);

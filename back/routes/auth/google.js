@@ -21,7 +21,7 @@ function prepareRouter() {
     });
 
   router.get('/login', (req, res) => {
-    res.redirect('http://localhost:5500')
+    res.redirect('/')
   })
 
   return router;
