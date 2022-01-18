@@ -12,6 +12,8 @@ function main() {
   const app = express();
   // Add headers before the routes are defined
   app.use(cors());
+  app.use(express.json());
+  app.use(express.urlencoded({extended: false}));
   initServices(app);
   // Initializes passport and passport sessions
   app.use(passport.initialize());

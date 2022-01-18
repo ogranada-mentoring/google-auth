@@ -29,18 +29,14 @@
         <div class="box">
           <h3>Login form</h3>
           <p id="message" class="text-info"></p>
-          <form method="post" id="login_form">
-            <div class="form-group mb-3">
-              <label>Name:</label>
-              <input type="text" class="form-control" placeholder="Required" name="name" autofocus required="required">
-            </div>
-            <div class="form-group mb-3">
-              <label>Last name:</label>
-              <input type="text" class="form-control" placeholder="Required" name="lastname" required="required">
-            </div>
+          <form method="post" id="login_form" action="/local/auth">
             <div class="form-group mb-3">
               <label>Email:</label>
               <input type="email" class="form-control" placeholder="Required" name="email" required="required">
+            </div>
+            <div class="form-group mb-3">
+              <label>Last name:</label>
+              <input type="password" class="form-control" placeholder="Required" name="password" required="required">
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-primary">Login</button>
@@ -53,6 +49,9 @@
               </a>
               <a type="button" class="btn btn-outline-primary" href="/facebook/auth">
                 <i class="fab fa-facebook"></i> Facebook
+              </a>
+              <a type="button" class="btn btn-outline-primary" href="/linkedin/auth">
+                <i class="fab fa-linkedin"></i> LinkedIn
               </a>
             </div>
           </form>
