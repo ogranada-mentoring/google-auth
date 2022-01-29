@@ -6,6 +6,7 @@ const initServices = require('./services');
 const initPublicRouter = require('./routes/public');
 const prepareRoutes = require('./routes/auth');
 const { initializeAuth0 } = require('./services/auth0');
+const initMercadoPagoRouter = require('./routes/MERCADOPAGO.JS');
 
 function main() {
   dotenv.config()
@@ -20,6 +21,7 @@ function main() {
   app.use(passport.initialize());
   initializeAuth0(app);
   app.use(initPublicRouter());
+  app.use(initMercadoPagoRouter());
   app.use(prepareRoutes());
 
   app.use(express.static('./public'))
