@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago</title>
+  
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+</head>
+<body>
+  <form id="form-checkout" >
+    <label style="display: block">
+      Card Number
+      <input type="text" name="cardNumber" id="form-checkout__cardNumber" />
+    </label>
+    <label style="display: block">
+      Expiration Date
+      <input type="text" name="cardExpirationDate" id="form-checkout__cardExpirationDate" />
+    </label>
+    <label style="display: block">
+      Card Owner Name
+      <input type="text" name="cardholderName" id="form-checkout__cardholderName"/>
+    </label>
+    <label style="display: block">
+      Card Owner Email
+      <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
+    </label>
+    <label style="display: block">
+      Card Security Code
+      <input type="text" name="securityCode" id="form-checkout__securityCode" />
+    </label>
+    <label style="display: block">
+      Card Issuer
+      <select name="issuer" id="form-checkout__issuer">
+        <!--
+          <option value="Mastercard">Mastercard</option>
+          <option value="Visa">Visa</option>
+          <option value="American Express">American Express</option>
+
+        -->
+      </select>
+    </label>
+    <label style="display: block">
+      Document type
+      <select name="identificationType" id="form-checkout__identificationType">
+        <!--
+          <option value="CEDULA">CEDULA</option>
+          <option value="DNI">DNI</option>
+          <option value="NIT">NIT</option>
+
+        -->
+      </select>
+    </label>
+    <label style="display: block">
+      Document Number
+      <input type="text" name="identificationNumber" id="form-checkout__identificationNumber"/>
+    </label>
+    <label style="display: block">
+      installments
+      <select name="installments" id="form-checkout__installments">
+      </select>
+    </label>
+    <button type="submit" id="form-checkout__submit">Pagar</button>
+    <progress value="0" class="progress-bar">Cargando...</progress>
+ </form>
+
+ <script src="./js/pagos.js"></script>
+</body>
+</html>
