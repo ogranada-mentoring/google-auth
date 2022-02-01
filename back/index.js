@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const express = require('express');
+const session = require('express-session');
 const cors = require('cors')
 const passport = require('passport');
 const initServices = require('./services');
@@ -12,6 +13,16 @@ function main() {
   dotenv.config()
   const PORT = process.env.PORT;
   const app = express();
+  console.log(process.env.SESSION_SECRET)
+  app.use(session({
+    secret: process.env.SESSION_SECRET,
+  }));
+  app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
   // Add headers before the routes are defined
   app.use(cors());
   app.use(express.json());
@@ -19,6 +30,7 @@ function main() {
   initServices(app);
   // Initializes passport and passport sessions
   app.use(passport.initialize());
+  app.use(passport.session()); // SOLO PARA TWITTER
   initializeAuth0(app);
   app.use(initPublicRouter());
   app.use(initMercadoPagoRouter());
