@@ -11,10 +11,6 @@ function initializeAuth0(app) {
     secret: process.env.AUTH0_SECRET,
     // routes: {}
   };
-  console.log({
-    ...config,
-    secret: `1`
-  })
   app.use(auth(config));
 }
 

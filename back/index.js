@@ -8,6 +8,7 @@ const initPublicRouter = require('./routes/public');
 const prepareRoutes = require('./routes/auth');
 const { initializeAuth0 } = require('./services/auth0');
 const initMercadoPagoRouter = require('./routes/MERCADOPAGO.JS');
+const initPaypalPayment = require('./routes/paypal');
 
 function main() {
   dotenv.config()
@@ -34,6 +35,7 @@ function main() {
   initializeAuth0(app);
   app.use(initPublicRouter());
   app.use(initMercadoPagoRouter());
+  app.use(initPaypalPayment());
   app.use(prepareRoutes());
 
   app.use(express.static('./public'))

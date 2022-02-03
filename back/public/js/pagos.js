@@ -48,7 +48,7 @@ function prepareMercadoForm(amount, token) {
         if (error) return console.warn("Form Mounted handling error: ", error);
         console.log("Form mounted");
       },
-      
+
       onSubmit: event => {
         event.preventDefault();
 
@@ -84,16 +84,16 @@ function prepareMercadoForm(amount, token) {
             },
           }),
         })
-        .then(response => response.json())
-        .then(json => {
-          alert(JSON.stringify(json));
-          goHome();
-        })
-        .catch(error => {
-          alert(error.message);
-          goHome();
-        })
-        ;
+          .then(response => response.json())
+          .then(json => {
+            alert(JSON.stringify(json));
+            goHome();
+          })
+          .catch(error => {
+            alert(error.message);
+            goHome();
+          })
+          ;
       },
       onFetching: (resource) => {
         console.log("Fetching resource: ", resource);
@@ -136,7 +136,7 @@ function goHome() {
   location.href = '/';
 }
 
-function main() {
+function prepareMercadoPago() {
   const amount = getFromQuery('amount');
   // const username = getFromQuery('username');
   if (!amount) {
@@ -148,6 +148,10 @@ function main() {
       prepareMercadoForm(amount, token);
     })
     .catch(error => console.log(error))
+}
+
+function main() {
+  prepareMercadoPago();
 }
 
 main();
